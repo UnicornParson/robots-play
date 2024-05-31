@@ -1,7 +1,7 @@
 import mmap
 import tqdm
 
-def get_num_lines(file_path):
+def get_num_lines(file_path) -> int:
 	fp = open(file_path, "r+")
 	buf = mmap.mmap(fp.fileno(), 0)
 	lines = 0
@@ -9,19 +9,19 @@ def get_num_lines(file_path):
 		lines += 1
 	return lines
 
-def firstNotNull(l: list):
+def first_not_null(l: list):
 	for item in l:
 		if item != 0:
 			return item
  
-def notNull(l: list) -> list:
+def not_null(l: list) -> list:
 	ret = []
 	for item in l:
 		if item != 0:
 			ret.append(item)
 	return ret
 
-def getDiff(l: list, r: list):
+def get_diff(l: list, r: list):
 	if not r or not l:
 		return []
 	d = []
@@ -50,14 +50,14 @@ def chunks(L, n):
 		yield L[i:i+n]
 
 
-def loadMarkers(fname:str, marker:str, extractor) -> list:
+def load_markers(fname: str, marker: str, extractor) -> list:
 	result = []
 	lcount = get_num_lines(fname)
 	with open(fname, 'r') as f:
 		for line in tqdm.tqdm(f, total=lcount):
 			line = line.strip() 
 			if marker in line:
-				pos =  line.find(marker) + len(marker)
+				pos = line.find(marker) + len(marker)
 				tail = line[pos:].strip()
 				#parts = tail.split(":")
 				try:

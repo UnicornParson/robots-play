@@ -7,5 +7,5 @@ setup(
     url="https://github.com/UnicornParson/robots-play",
     author="Dieter",
     packages=find_packages(),
-    install_requires=[],  # Specify any required packages as a list
+    install_requires=["tqdm"],  # Specify any required packages as a list
 )
