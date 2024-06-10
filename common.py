@@ -1,6 +1,7 @@
 import mmap
 import tqdm
 import statistics
+
 def get_num_lines(file_path) -> int:
 	fp = open(file_path, "r+")
 	buf = mmap.mmap(fp.fileno(), 0)
