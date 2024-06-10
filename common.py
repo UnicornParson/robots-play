@@ -11,9 +11,12 @@ def get_num_lines(file_path) -> int:
 	return lines
 
 def first_not_null(l: list):
+	if not l:
+		return None
 	for item in l:
 		if item != 0:
 			return item
+	return None
  
 def not_null(l: list) -> list:
 	ret = []
@@ -46,10 +49,7 @@ def normalize(l:list)->list:
 	if not l:
 		return []
 	ret = []
-	nn = not_null(l)
-	if not nn:
-		return []
-	base = min(nn)
+	base = min(l)
 	for item in l:
 		if item != 0:
 			ret.append(item - base)
